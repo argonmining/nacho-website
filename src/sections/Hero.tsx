@@ -4,7 +4,7 @@ import FloatingNacho from '@/components/ui/FloatingNacho';
 import LetterPullup from '@/components/ui/letter-pullup';
 import crowdfunding from '@/config/crowdfunding';
 import { motion, useAnimate, useAnimationControls } from 'framer-motion';
-import { LucideChartCandlestick, LucideNotepadText, LucideScroll, LucideUsers } from 'lucide-react';
+import { LucideChartCandlestick, LucideCoins, LucideEarth, LucideUsers } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 
@@ -42,19 +42,19 @@ export default function HeroSection() {
 					</motion.div>
 				</div>
 				<div className={'mb-10 flex flex-wrap gap-6'} ref={linkButtonsScope}>
-					<Link href={'/Nacho_the_kat_Whitepaper_240605.pdf'} target={'_blank'}>
-						<PartButton active={false} icon={<LucideScroll />} onClick={() => {}} className={'opacity-0'}>
-							Whitepaper
+					<Link href={'#about'}>
+						<PartButton active={false} icon={<LucideCoins />} onClick={() => {}} className={'opacity-0'}>
+							Tokenomics
 						</PartButton>
 					</Link>
-					<Link href={'/documents/one-pager.pdf'} target={'_blank'}>
+					<Link href={'#about'}>
 						<PartButton
 							active={false}
-							icon={<LucideNotepadText />}
+							icon={<LucideEarth />}
 							onClick={() => {}}
 							className={'opacity-0'}
 						>
-							One Pager
+							Vision
 						</PartButton>
 					</Link>
 					<Link href={'#trade-nacho'}>

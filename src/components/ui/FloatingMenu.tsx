@@ -9,7 +9,8 @@ const menuItems = [
     { title: 'About', href: '#about' },
     { title: 'Trade', href: '#trade-nacho' },
     { title: 'Community', href: '#socials' },
-    { title: 'Docs', href: '/documents/one-pager.pdf' }
+    { title: 'Whitepaper', href: '/Nacho_the_kat_Whitepaper_240605.pdf' },
+    { title: 'One Pager', href: '/documents/one-pager.pdf' }
 ];
 
 export default function FloatingMenu() {
@@ -59,6 +60,7 @@ export default function FloatingMenu() {
                                     <Link
                                         key={item.title}
                                         href={item.href}
+                                        target={item.href.startsWith('/') ? '_blank' : undefined}
                                         className="text-lg hover:text-primary transition-colors"
                                     >
                                         {item.title}
@@ -113,6 +115,7 @@ export default function FloatingMenu() {
                                     <Link
                                         key={item.title}
                                         href={item.href}
+                                        target={item.href.startsWith('/') ? '_blank' : undefined}
                                         className="text-xl hover:text-primary transition-colors"
                                         onClick={() => setIsOpen(false)}
                                     >
