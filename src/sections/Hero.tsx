@@ -1,7 +1,7 @@
 import CrowdfundingProgress from '@/components/CrowdfundingProgress';
 import { PartButton } from '@/components/ui/Buttons/PartButton';
+import FloatingNacho from '@/components/ui/FloatingNacho';
 import LetterPullup from '@/components/ui/letter-pullup';
-import PeekingNacho from '@/components/ui/PeekingNacho';
 import TypewriterText from '@/components/ui/TypewriterText';
 import crowdfunding from '@/config/crowdfunding';
 import { motion, stagger, useAnimate, useAnimationControls } from 'framer-motion';
@@ -16,15 +16,13 @@ export default function HeroSection() {
 
 	return (
 		<div className={'relative flex min-h-screen flex-col items-center justify-start md:flex-row'}>
-			<div className={'mt-0 flex flex-col gap-4 md:mt-0'}>
+			<div className={'mt-[250px] flex flex-col gap-4 md:mt-[350px]'}>
 				<div className="relative">
-					<PeekingNacho position="left" delay={1.5} />
-					<PeekingNacho position="right" delay={2} />
-					<PeekingNacho position="top" delay={2.5} />
+					<FloatingNacho />
 					<LetterPullup
 						words={"Nacho the Kat, inspired by Shai Wyborski's pet cat."}
 						delay={0.05}
-						className={'text-6xl md:text-7xl'}
+						className={'relative z-10 text-6xl md:text-7xl'}
 						onAnimationComplete={() => {
 							taglineControls.start({
 								opacity: 1
