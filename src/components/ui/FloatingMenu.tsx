@@ -16,23 +16,33 @@ export default function FloatingMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed right-4 top-4 z-50">
+        <div className="fixed right-8 top-8 z-50">
             {/* Desktop Menu */}
             <div className="hidden md:block">
                 <div className="relative">
                     <motion.div
                         className="group cursor-pointer"
                         whileHover="hover"
+                        initial="initial"
+                        animate="initial"
                     >
-                        <Image
-                            src="/img/nacho.svg"
-                            alt="Menu"
-                            width={50}
-                            height={50}
-                            className="relative z-10"
-                        />
                         <motion.div
-                            className="absolute right-16 top-1/2 -translate-y-1/2 origin-right"
+                            variants={{
+                                initial: { rotate: 0 },
+                                hover: { rotate: 360 }
+                            }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                            <Image
+                                src="/img/nacho.svg"
+                                alt="Menu"
+                                width={50}
+                                height={50}
+                                className="relative z-10"
+                            />
+                        </motion.div>
+                        <motion.div
+                            className="absolute right-[calc(100%-2px)] top-1/2 -translate-y-1/2 origin-left"
                             initial={{ width: 0, opacity: 0 }}
                             variants={{
                                 hover: {
