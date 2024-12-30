@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function FloatingNacho() {
   return (
     <motion.div
-      className="absolute left-0 -top-[250px] z-20 w-[400px] transform md:-top-[300px] md:w-[675px]"
+      className="absolute left-0 -top-[220px] w-[250px] transform md:-top-[300px] md:w-[350px]"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
