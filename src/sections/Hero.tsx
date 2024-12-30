@@ -3,7 +3,7 @@ import { PartButton } from '@/components/ui/Buttons/PartButton';
 import FloatingNacho from '@/components/ui/FloatingNacho';
 import LetterPullup from '@/components/ui/letter-pullup';
 import crowdfunding from '@/config/crowdfunding';
-import { motion, stagger, useAnimate, useAnimationControls } from 'framer-motion';
+import { motion, useAnimate, useAnimationControls } from 'framer-motion';
 import { LucideChartCandlestick, LucideNotepadText, LucideScroll, LucideUsers } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -26,6 +26,11 @@ export default function HeroSection() {
 							taglineControls.start({
 								opacity: 1
 							});
+							animateLinkButtons('.part-button', { opacity: 1 }, { delay: 0.3 }).then(() => {
+								if (progressBarRef.current) {
+									progressBarRef.current.style.opacity = '1';
+								}
+							});
 						}}
 					/>
 					<motion.div
@@ -33,17 +38,7 @@ export default function HeroSection() {
 						initial={{ opacity: 0 }}
 						animate={taglineControls}
 					>
-						<LetterPullup
-							words={"Inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."}
-							delay={0.05}
-							onAnimationComplete={() => {
-								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
-									if (progressBarRef.current) {
-										progressBarRef.current.style.opacity = '1';
-									}
-								});
-							}}
-						/>
+						Inspired by Kaspa Co-Founder, Shai Wyborski&apos;s pet cat.
 					</motion.div>
 				</div>
 				<div className={'mb-10 flex flex-wrap gap-6'} ref={linkButtonsScope}>
