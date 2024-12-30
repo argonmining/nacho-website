@@ -34,7 +34,7 @@ export default function HeroSection() {
 						animate={taglineControls}
 					>
 						<LetterPullup
-							words={"inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."}
+							words={"Inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."}
 							delay={0.05}
 							onAnimationComplete={() => {
 								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
