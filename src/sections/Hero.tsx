@@ -35,7 +35,7 @@ export default function HeroSection() {
 						animate={taglineControls}
 					>
 						<TypewriterText
-							text="inspired by Shai Wyborski's pet cat."
+							text="inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."
 							delay={1}
 							onComplete={() => {
 								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
