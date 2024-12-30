@@ -10,6 +10,8 @@ import TeamSection from '@/sections/Team';
 import TradeSection from '@/sections/Trade';
 import VideosSection from '@/sections/Videos';
 import dynamic from 'next/dynamic';
+import FloatingMenu from '@/components/ui/FloatingMenu';
+
 const Background = dynamic(() => import('@/components/Background'), {
 	ssr: false
 });
@@ -18,13 +20,13 @@ export default function Home() {
 	return (
 		<>
 			<main className={'dark mx-6 flex flex-col md:mx-12'}>
+				<FloatingMenu />
 				<HeroSection />
 				<IntroductionSection />
 				<RoadmapSection />
 				<TeamSection />
 				<ProductsSection />
 				<TradeSection />
-				{/* TODO: find a way for the videos maruqee to look good */}
 				<SocialsSection />
 				<VideosSection />
 				<Footer />
