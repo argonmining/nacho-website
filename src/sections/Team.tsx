@@ -14,9 +14,9 @@ export default function TeamSection() {
 				</div>
 
 				<SectionSubtitle className={'max-w-[64rem]'}>
-					The Nacho team consists of a group of talented individuals who are passionate about
-					cryptocurrency and the future of finance. We are always looking for new contributors to join
-					our team. If you are interested in contributing, please reach out to us.
+					The Nacho team is YOU! A community-driven movement of over 40 passionate crypto enthusiasts
+					and growing. Together, we’re shaping the future of finance—one paw at a time. Want to join the
+					the best memecoin community out there? Let’s make Nacho history!
 				</SectionSubtitle>
 			</div>
 

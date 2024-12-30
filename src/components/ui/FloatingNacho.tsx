@@ -5,8 +5,8 @@ export default function FloatingNacho() {
   return (
     <motion.div
       className="absolute left-0 -top-[180px] w-[250px] md:-top-[265px] md:w-[350px]"
-      initial={{ opacity: 0, y: -50, rotate: -10 }}
-      animate={{ opacity: 1, y: 0, rotate: -10 }}
+      initial={{ opacity: 0, y: -50, rotate: -5 }}
+      animate={{ opacity: 1, y: 0, rotate: -5 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
       <Image
