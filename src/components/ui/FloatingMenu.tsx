@@ -5,10 +5,9 @@ import { useState } from 'react';
 import { LucideX } from 'lucide-react';
 
 const menuItems = [
-    { title: 'Home', href: '/' },
-    { title: 'About', href: '#about' },
-    { title: 'Trade', href: '#trade-nacho' },
-    { title: 'Community', href: '#socials' },
+    { title: 'CoinMarketCap', href: 'https://coinmarketcap.com/currencies/nacho-the-kat/' },
+    { title: 'CoinGecko', href: 'https://www.coingecko.com/en/coins/nacho-the-kat' },
+    { title: 'Nacho Kats NFTs', href: '#trade-nacho' },
     { title: 'Whitepaper', href: '/Nacho_the_kat_Whitepaper_240605.pdf' },
     { title: 'One Pager', href: '/documents/one-pager.pdf' }
 ];
@@ -43,13 +42,23 @@ export default function FloatingMenu() {
                             />
                         </motion.div>
                         <motion.div
-                            className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-left z-10"
-                            initial={{ width: 0 }}
+                            className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-right z-10"
+                            initial={{ width: 0, opacity: 0 }}
                             variants={{
                                 hover: {
                                     width: 'auto',
+                                    opacity: 1,
                                     transition: {
-                                        duration: 0.3
+                                        duration: 0.5,
+                                        ease: "easeOut"
+                                    }
+                                },
+                                initial: {
+                                    width: 0,
+                                    opacity: 0,
+                                    transition: {
+                                        duration: 0.5,
+                                        ease: "easeIn"
                                     }
                                 }
                             }}
@@ -57,19 +66,18 @@ export default function FloatingMenu() {
                             <div className="flex items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 py-2 whitespace-nowrap overflow-hidden">
                                 <motion.div
                                     className="flex items-center gap-6"
-                                    initial={{ opacity: 0 }}
                                     variants={{
                                         hover: {
                                             opacity: 1,
                                             transition: {
-                                                duration: 0.2,
-                                                delay: 0.1
+                                                duration: 0.3,
+                                                delay: 0.2
                                             }
                                         },
                                         initial: {
                                             opacity: 0,
                                             transition: {
-                                                duration: 0.1
+                                                duration: 0.2
                                             }
                                         }
                                     }}
