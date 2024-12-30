@@ -20,8 +20,8 @@ export default function ExchangeCard(props: {
 				<h1 className={'text-card-title'}>{props.exchange.name}</h1>
 			</div>
 			<Link href={props.exchange.url} target={'_blank'} className={'mt-auto w-full'}>
-				<MediumButton className="w-full min-w-[200px] whitespace-nowrap">
-					<LucideCandlestickChart /> Trade on {props.exchange.name}
+				<MediumButton className="w-full min-w-[200px] whitespace-nowrap flex items-center justify-center gap-2">
+					<LucideCandlestickChart className="h-5 w-5" /> Trade on {props.exchange.name}
 				</MediumButton>
 			</Link>
 		</motion.div>
