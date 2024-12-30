@@ -33,17 +33,17 @@ export default function FloatingMenu() {
                                 hover: { rotate: 360 }
                             }}
                             transition={{ duration: 0.6, ease: "easeInOut" }}
+                            className="relative z-20"
                         >
                             <Image
                                 src="/img/nacho.svg"
                                 alt="Menu"
                                 width={50}
                                 height={50}
-                                className="relative z-10"
                             />
                         </motion.div>
                         <motion.div
-                            className="absolute right-[calc(100%-10px)] top-1/2 -translate-y-1/2 origin-left"
+                            className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-left z-10"
                             initial={{ width: 0, opacity: 0 }}
                             variants={{
                                 hover: {
