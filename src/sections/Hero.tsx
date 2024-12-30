@@ -2,7 +2,6 @@ import CrowdfundingProgress from '@/components/CrowdfundingProgress';
 import { PartButton } from '@/components/ui/Buttons/PartButton';
 import FloatingNacho from '@/components/ui/FloatingNacho';
 import LetterPullup from '@/components/ui/letter-pullup';
-import TypewriterText from '@/components/ui/TypewriterText';
 import crowdfunding from '@/config/crowdfunding';
 import { motion, stagger, useAnimate, useAnimationControls } from 'framer-motion';
 import { LucideChartCandlestick, LucideNotepadText, LucideScroll, LucideUsers } from 'lucide-react';
@@ -34,10 +33,10 @@ export default function HeroSection() {
 						initial={{ opacity: 0 }}
 						animate={taglineControls}
 					>
-						<TypewriterText
-							text="inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."
-							delay={1}
-							onComplete={() => {
+						<LetterPullup
+							words={"inspired by Kaspa Co-Founder, Shai Wyborski's pet cat."}
+							delay={0.05}
+							onAnimationComplete={() => {
 								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
 									if (progressBarRef.current) {
 										progressBarRef.current.style.opacity = '1';
