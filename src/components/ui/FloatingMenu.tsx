@@ -43,7 +43,6 @@ export default function FloatingMenu() {
                         </motion.div>
                         <motion.div
                             className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-right z-10"
-                            style={{ transformOrigin: "right center" }}
                             initial={{ scaleX: 0, opacity: 0 }}
                             variants={{
                                 hover: {
@@ -64,7 +63,7 @@ export default function FloatingMenu() {
                                 }
                             }}
                         >
-                            <div className="flex items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 py-2 whitespace-nowrap overflow-hidden">
+                            <div className="flex h-[50px] items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 whitespace-nowrap overflow-hidden">
                                 <motion.div
                                     className="flex items-center gap-6"
                                     variants={{
