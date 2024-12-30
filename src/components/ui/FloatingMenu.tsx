@@ -44,28 +44,47 @@ export default function FloatingMenu() {
                         </motion.div>
                         <motion.div
                             className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-left z-10"
-                            initial={{ width: 0, opacity: 0 }}
+                            initial={{ width: 0 }}
                             variants={{
                                 hover: {
                                     width: 'auto',
-                                    opacity: 1,
                                     transition: {
                                         duration: 0.3
                                     }
                                 }
                             }}
                         >
-                            <div className="flex items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 py-2 whitespace-nowrap">
-                                {menuItems.map((item) => (
-                                    <Link
-                                        key={item.title}
-                                        href={item.href}
-                                        target={item.href.startsWith('/') ? '_blank' : undefined}
-                                        className="text-lg hover:text-primary transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                ))}
+                            <div className="flex items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 py-2 whitespace-nowrap overflow-hidden">
+                                <motion.div
+                                    className="flex items-center gap-6"
+                                    initial={{ opacity: 0 }}
+                                    variants={{
+                                        hover: {
+                                            opacity: 1,
+                                            transition: {
+                                                duration: 0.2,
+                                                delay: 0.1
+                                            }
+                                        },
+                                        initial: {
+                                            opacity: 0,
+                                            transition: {
+                                                duration: 0.1
+                                            }
+                                        }
+                                    }}
+                                >
+                                    {menuItems.map((item) => (
+                                        <Link
+                                            key={item.title}
+                                            href={item.href}
+                                            target={item.href.startsWith('/') ? '_blank' : undefined}
+                                            className="text-lg hover:text-primary transition-colors"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ))}
+                                </motion.div>
                             </div>
                         </motion.div>
                     </motion.div>
