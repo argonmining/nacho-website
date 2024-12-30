@@ -16,7 +16,7 @@ export default function FloatingMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed right-8 top-8 z-50">
+        <div className="fixed right-16 top-16 z-50">
             {/* Desktop Menu */}
             <div className="hidden md:block">
                 <div className="relative">
