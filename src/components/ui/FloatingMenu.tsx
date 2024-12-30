@@ -63,7 +63,7 @@ export default function FloatingMenu() {
                                 }
                             }}
                         >
-                            <div className="flex h-[50px] items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 whitespace-nowrap overflow-hidden">
+                            <div className="flex items-center gap-6 rounded-xl border-2 border-primary bg-background px-6 py-2 whitespace-nowrap overflow-hidden">
                                 <motion.div
                                     className="flex items-center gap-6"
                                     variants={{
