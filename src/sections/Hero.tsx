@@ -20,7 +20,7 @@ export default function HeroSection() {
 				<div className="relative">
 					<FloatingNacho />
 					<LetterPullup
-						words={"Nacho the Kat, inspired by Shai Wyborski's pet cat."}
+						words={"Nacho the Kat, the first fair-launched memecoin on Kaspa."}
 						delay={0.05}
 						className={'relative z-10 text-6xl md:text-7xl'}
 						onAnimationComplete={() => {
@@ -35,7 +35,7 @@ export default function HeroSection() {
 						animate={taglineControls}
 					>
 						<TypewriterText
-							text="The first fair-launched memecoin on Kaspa."
+							text="inspired by Shai Wyborski's pet cat."
 							delay={1}
 							onComplete={() => {
 								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
