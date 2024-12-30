@@ -43,10 +43,11 @@ export default function FloatingMenu() {
                         </motion.div>
                         <motion.div
                             className="absolute right-[calc(100%-20px)] top-1/2 -translate-y-1/2 origin-right z-10"
-                            initial={{ width: 0, opacity: 0 }}
+                            style={{ transformOrigin: "right center" }}
+                            initial={{ scaleX: 0, opacity: 0 }}
                             variants={{
                                 hover: {
-                                    width: 'auto',
+                                    scaleX: 1,
                                     opacity: 1,
                                     transition: {
                                         duration: 0.5,
@@ -54,7 +55,7 @@ export default function FloatingMenu() {
                                     }
                                 },
                                 initial: {
-                                    width: 0,
+                                    scaleX: 0,
                                     opacity: 0,
                                     transition: {
                                         duration: 0.5,
