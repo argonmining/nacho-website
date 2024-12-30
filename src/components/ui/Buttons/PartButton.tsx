@@ -1,73 +1,33 @@
-/* eslint-disable capitalized-comments */
-// noinspection JSIgnoredPromiseFromCall
+import { cn } from '@/lib/utils';
+import { usePawCursor } from '@/hooks/usePawCursor';
+import PawCursor from '@/components/ui/PawCursor';
+import { ReactNode } from 'react';
 
-import { BigButton } from '@/components/ui/Buttons/BigButton';
-import clsx from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
-import { LucideEye } from 'lucide-react';
-import { ReactNode, useEffect } from 'react';
-
-export const PartButton = ({
-	children,
-	active,
-	onClick,
-	icon,
-	className
-}: {
-	children: ReactNode;
+interface PartButtonProps {
 	active?: boolean;
-	onClick: () => void;
-	icon: ReactNode;
+	icon?: ReactNode;
+	onClick?: () => void;
 	className?: string;
-}) => {
-	const iconControls = useAnimation();
-	const eyeControls = useAnimation();
-	const buttonControls = useAnimation();
+	children?: ReactNode;
+}
 
-	const handleMouseEnter = () => {
-		buttonControls.start({ y: -1, transition: { duration: 0.1 } });
-	};
-
-	const handleMouseLeave = () => {
-		buttonControls.start({ y: 0, transition: { duration: 0.1 } });
-	};
-
-	const handleMouseDown = () => {
-		buttonControls.start({ y: 3, transition: { duration: 0.1 } });
-	};
-
-	const handleMouseUp = () => {
-		buttonControls.start({ y: 0, transition: { duration: 0.1 } });
-	};
-
-	useEffect(() => {
-		if (active) {
-			iconControls.start({ scale: 0, transition: { duration: 0.2 } });
-			eyeControls.start({ scale: 1, transition: { duration: 0.2 } });
-		} else {
-			eyeControls.start({ scale: 0, transition: { duration: 0.2 } });
-			iconControls.start({ scale: 1, transition: { duration: 0.2 } });
-		}
-	}, [active, iconControls, eyeControls]);
+export function PartButton({ active = false, icon, onClick, className, children }: PartButtonProps) {
+	const { cursorState, handlers } = usePawCursor();
 
 	return (
-		<BigButton
-			className={clsx('part-button', className)}
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-			onMouseDown={handleMouseDown}
-			onMouseUp={handleMouseUp}
-			onClick={onClick}
-			initial={{ y: 0 }}
-			animate={buttonControls}
-		>
-			<motion.span animate={iconControls} className={active ? 'hidden' : ''}>
-				{icon}
-			</motion.span>
-			<motion.span animate={eyeControls} className={!active ? 'hidden' : ''}>
-				<LucideEye />
-			</motion.span>
-			{children}
-		</BigButton>
+		<>
+			<button
+				className={cn(
+					'part-button flex items-center gap-3 rounded-full border-2 border-primary bg-background px-6 py-3 text-xl font-bold transition-all hover:scale-105 active:scale-95',
+					active && 'bg-primary text-background',
+					className
+				)}
+				onClick={onClick}
+				{...handlers}
+			>
+				{icon} {children}
+			</button>
+			<PawCursor {...cursorState} />
+		</>
 	);
-};
+}

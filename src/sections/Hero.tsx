@@ -1,9 +1,10 @@
 import CrowdfundingProgress from '@/components/CrowdfundingProgress';
 import { PartButton } from '@/components/ui/Buttons/PartButton';
 import LetterPullup from '@/components/ui/letter-pullup';
-import { SectionSubtitle } from '@/components/ui/Typography/SectionTitle';
+import PeekingNacho from '@/components/ui/PeekingNacho';
+import TypewriterText from '@/components/ui/TypewriterText';
 import crowdfunding from '@/config/crowdfunding';
-import { stagger, useAnimate, useAnimationControls } from 'framer-motion';
+import { motion, stagger, useAnimate, useAnimationControls } from 'framer-motion';
 import { LucideChartCandlestick, LucideNotepadText, LucideScroll, LucideUsers } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -16,7 +17,10 @@ export default function HeroSection() {
 	return (
 		<div className={'relative flex min-h-screen flex-col items-center justify-start md:flex-row'}>
 			<div className={'mt-0 flex flex-col gap-4 md:mt-0'}>
-				<div>
+				<div className="relative">
+					<PeekingNacho position="left" delay={1.5} />
+					<PeekingNacho position="right" delay={2} />
+					<PeekingNacho position="top" delay={2.5} />
 					<LetterPullup
 						words={"Nacho the Kat, inspired by Shai Wyborski's pet cat."}
 						delay={0.05}
@@ -27,21 +31,23 @@ export default function HeroSection() {
 							});
 						}}
 					/>
-					<SectionSubtitle
+					<motion.div
+						className="mt-4 text-xl md:text-2xl"
+						initial={{ opacity: 0 }}
 						animate={taglineControls}
-						initial={{
-							opacity: 0
-						}}
-						onAnimationComplete={() => {
-							animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
-								if (progressBarRef.current) {
-									progressBarRef.current.style.opacity = '1';
-								}
-							});
-						}}
 					>
-						The first fair-launched memecoin on Kaspa.
-					</SectionSubtitle>
+						<TypewriterText
+							text="The first fair-launched memecoin on Kaspa."
+							delay={1}
+							onComplete={() => {
+								animateLinkButtons('.part-button', { opacity: 1 }, { delay: stagger(0.3) }).then(() => {
+									if (progressBarRef.current) {
+										progressBarRef.current.style.opacity = '1';
+									}
+								});
+							}}
+						/>
+					</motion.div>
 				</div>
 				<div className={'mb-10 flex flex-wrap gap-6'} ref={linkButtonsScope}>
 					<Link href={'/Nacho_the_kat_Whitepaper_240605.pdf'} target={'_blank'}>
